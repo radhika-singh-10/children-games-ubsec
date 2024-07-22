@@ -149,7 +149,7 @@ async def update_moderation_results(api_key: str = Form(...)):
                 print(f"Error fetching data for operationId {operation_id}: {str(http_err)}")
                 continue
 
-        with open('./moderation_results_copy.csv', mode='w', newline='') as file:
+        with open('./moderation_results_copy.csv', mode='a', newline='') as file:
             fieldnames = updated_rows[0].keys()
             csv_writer = csv.DictWriter(file, fieldnames=fieldnames)
             csv_writer.writeheader()
